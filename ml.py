@@ -4,6 +4,7 @@ import warnings
 import numpy as np
 import pandas as pd
 from sklearn import tree,svm
+from sklearn.linear_model import LogisticRegression
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.model_selection import train_test_split
 
@@ -29,7 +30,7 @@ x_train, x_test, y_train, y_test = train_test_split(x, y,test_size=0.3, random_s
 
 print("svm")
 
-svm_model = svm.SVC(probability=True,kernel='linear', gamma='auto',C=1)
+svm_model = LogisticRegression()
 svm_model.fit(x_train,y_train)
 a = svm_model.score(x_test,y_test)
 print(a)
